@@ -13,9 +13,11 @@ class HomePage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DateSelector(),
-
-          const SizedBox(height: 16),
+          DateSelector(
+            onDateChanged: (date) {
+              print('선택된 날짜: $date');
+            },
+          ),
 
           Expanded(
             child: ListView.builder(
