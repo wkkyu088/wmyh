@@ -16,6 +16,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Pretendard',
         scaffoldBackgroundColor: Colors.white,
+        splashColor: Colors.grey[100],
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            overlayColor: Colors.grey,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+        ),
         textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.black)),
       ),
       home: const HomePage(),
