@@ -160,7 +160,7 @@ class _DateSelectorState extends State<DateSelector> {
         itemCount: items.length,
         itemBuilder: (context, index) {
           final isSelected = index == selectedIndex;
-          return GestureDetector(
+          return InkWell(
             onTap: () => onTap(index),
             child: Container(
               alignment: Alignment.center,

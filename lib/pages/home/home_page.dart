@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wmyh/components/custom_app_bar.dart';
+import 'package:wmyh/constants/dummy_stories.dart';
 import 'widgets/date_selector.dart';
-import 'widgets/note_item.dart';
+import 'widgets/story_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -21,36 +22,30 @@ class HomePage extends StatelessWidget {
 
           Expanded(
             child: ListView.builder(
-              itemCount: 10,
+              itemCount: 5,
               itemBuilder: (context, index) {
-                return NoteItem(year: _yearAbbr(index));
+                final story = dummyStories[index];
+                return index == 0
+                    ? InkWell(
+                      onTap: () {
+                        print('Go to story create page');
+                      },
+                      child: StoryItem(year: '2025'),
+                    )
+                    : InkWell(
+                      onTap: () {
+                        print('Go to story detail page: ${story['createdAt']}');
+                      },
+                      child: StoryItem(
+                        year: story['year'],
+                        note: story['note'],
+                      ),
+                    );
               },
             ),
           ),
         ],
       ),
     );
-  }
-
-  String _yearAbbr(int idx) {
-    const year = [
-      '2025',
-      '2024',
-      '2023',
-      '2022',
-      '2021',
-      '2020',
-      '2019',
-      '2018',
-      '2017',
-      '2016',
-      '2015',
-      '2014',
-      '2013',
-      '2012',
-      '2011',
-      '2010',
-    ];
-    return year[idx];
   }
 }
